@@ -1,0 +1,181 @@
+.noselect{
+    -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+}
+.notaphighlight{
+    -webkit-tap-highlight-color: transparent; 
+    -khtml-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -o-tap-highlight-color: transparent; 
+    tap-highlight-color: transparent;
+}
+
+body{
+   padding: 0;
+   margin: 0;
+}
+
+
+/* main template css */
+.logobg{
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 55px;
+    width: 150px;
+    display: flex; align-items: center; justify-content:center;
+}
+.menulinkbg{
+    position: fixed;
+    top: 75px;
+    right: 0;
+    transform: translateX(100%);
+    transition: 0.3s;
+    width: 175px;
+    padding-left: 25px;
+}
+.menulink{
+    height: 55px;
+    display: flex;
+    align-items: center;
+
+}
+/* css for the mobile menu button (fake checkbox and animation) */
+.menubtnbg{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 55px;
+    width: 55px;
+}
+.row{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+label.checkclass { 
+   display: block;
+  width: 30px; height: 30px; 
+   position: relative;
+   margin-left: auto; margin-right: auto;
+   border-radius: 4px;
+   margin-top: -3px;
+cursor: pointer;
+}
+input#checkid{
+	display: none;
+}
+.smallpadding{
+	height: 100%;
+	width: 100%;
+}
+.line { 
+   position: absolute; 
+   height: 3px; width: 30px; 
+   border-radius: 2px;
+   display: block; 
+   transition:all 0.2s; 
+   transform-origin: center;
+   background: black;
+}
+
+.line:nth-child(1) { top: 8px; transform: rotateY(180deg);}
+.line:nth-child(2) { top: 16px; }
+.line:nth-child(3) { top: 24px; transform: rotateY(180deg);}
+
+.menu-active .line:nth-child(1){
+	transform: translateY(8px) rotate(-45deg);
+	background: red;
+}
+.menu-active .line:nth-child(3){
+	transform: translateY(-8px) rotate(45deg);
+	background: red;
+}
+.menu-active .line:nth-child(2){
+opacity: 0;
+}
+
+
+.print{
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex; align-items: center; justify-content:center;
+    background: black;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.linkico{
+    background: black;
+    color: white;
+    font-weight: 600;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    display: flex; align-items: center; justify-content:center;
+    margin-right: 10px;
+}
+.content{
+    width: 100%;
+}
+/* mobile version changes */
+@media screen and (max-width: 780px){
+    .menulinkbg{
+        background: white;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    .logobg{
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+}
+/* desktop version changes */
+@media screen and (min-width: 780px){
+    .menubtnbg{
+        display: none;
+    }
+    .logobg{
+        left: 5%;
+    }
+    .menubtnbg{
+        position: fixed;
+        right: 5%;
+    }
+    .menulinkbg{
+        display: flex; align-items: center; justify-content:space-evenly;
+        transform: translateX(0px)!important;
+        top: 0;
+        right: 5%;
+        height: 55px;
+        width: calc(90% - 150px);
+       
+    }
+    .menulink{
+        transition: 0.3s;
+        justify-content: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .menulink:hover{
+        background: black;
+        color: white;
+        cursor: pointer;
+    }
+    .menulink:hover a:nth-child(1){
+        background: white;
+        color: black;
+    }
+}
